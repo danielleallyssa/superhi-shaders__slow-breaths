@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Sprat";
-  src: url("/assets/sprat.woff2") format("woff2");
+  src: url("assets/sprat.woff2") format("woff2");
 }
 
 @keyframes inhale {
