@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Sprat";
+  src: url("/assets/sprat.woff2") format("woff2");
+}
+
+@keyframes inhale {
+  0% {
+    font-variation-settings: "wght" 10, "wdth" 100;
+    opacity: 0.5;
+  }
+  100% {
+    font-variation-settings: "wght" 100, "wdth" 120;
+    opacity: 1;
+  }
+}
+
+@keyframes exhale {
+  0% {
+    font-variation-settings: "wght" 100, "wdth" 120;
+    opacity: 1;
+  }
+  100% {
+    font-variation-settings: "wght" 10, "wdth" 100;
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Sprat", serif;
+  font-size: 16px;
+  line-height: 1;
+
+  color: #fff;
+  background: #222;
+}
+
+section {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  font-size: 9vmin;
+  text-align: center;
+}
+
+section div {
+  width: 5em;
+  animation: inhale 5s infinite alternate cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+section .exhale {
+  animation: exhale 5s infinite alternate cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  /* check browser compatibilty for this  */
+  translate: -50% -50%;
+
+  /* Turn on these elements for circle */
+  border-radius: 50%;
+  height: min(700px, 90vmin);
+  width: min(700px, 90vmin);
+  animation: pulse 5s infinite alternate;
+
+  /* Turn on for fullscreen */
+  /* height: 100%;
+  width: 100%; */
+}
+
+@media screen and (max-width: 499px) {
+  section {
+    flex-direction: column;
+  }
+}
